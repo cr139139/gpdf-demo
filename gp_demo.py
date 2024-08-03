@@ -45,7 +45,7 @@ def cov_hessian(x1, x2):
     hessian_constant_1 = (jp.exp(-d / l)).reshape((x1.shape[0], x2.shape[0], 1, 1))
     hessian_constant_2 = (1 / (l ** 2 * d ** 2) + 1 / (l * d ** 3)).reshape((x1.shape[0], x2.shape[0], 1, 1))
     hessian_constant_3 = (1 / (l * d)).reshape((x1.shape[0], x2.shape[0], 1, 1)) * jp.eye(3).reshape((1, 1, 3, 3))
-    return hessian_constant_1 * (hessian_constant_2 * h + hessian_constant_3)
+    return hessian_constant_1 * (hessian_constant_2 * h - hessian_constant_3)
 
 
 # sampling the surface of a sphere
